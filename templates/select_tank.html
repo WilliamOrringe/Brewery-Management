@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+<head>
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <form method = "POST">
+  <div class="dropdown">
+    <select class ="dropbtn" name=tank_type>
+      <option value="0" selected disabled>
+        Please select the tank that will be used for Conditioning
+      </option>
+      {%for tanks in brew_l%}
+      <option value="{{tanks}}"> {{tanks[0]}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <input value="Confirm Selection" type="submit" class="button">
+</form>
+</body>
+<br>
+<form action="/">
+  <input value="Return to home" type="submit" class="button">
+</form>
+</html>

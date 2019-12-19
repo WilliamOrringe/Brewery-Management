@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+<head>
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <h1><u>{{new_title}}</u></h1>
+  <form method="POST">
+    <div class="dropdown">
+      <select class ="dropbtn" name=recipe_type>
+        <option value="0" selected disabled>Please select the recipe</option>
+        <option value="Red-Helles">Red Helles</option>
+        <option value="Pilsner">Pilsner</option>
+        <option value="Dunkel">Dunkel</option>
+      </select>
+    </div>
+    <br><br>
+    <div class="dropdown">
+      <select class ="dropbtn" name=tank_type>
+        <option value="0" selected disabled>Please select the tank</option>
+        {%for tanks in brew_l%}
+        <option value="{{tanks}}"> {{tanks}}</option>
+        {%endfor%}
+      </select>
+    </div>
+    <br><br>
+     <input type="text" class ="textfield"
+    name=bottle_number required placeholder="Enter number of bottles"
+    maxlength="5">
+    <br><br>
+    <input type="text" class ="textfield"
+    name=bottle_id required placeholder="Enter BottleID">
+    <input type="submit" class="button">
+  </form>
+</body>
+<br>
+<form action="/">
+  <input value="Return to home" type="submit" class="button">
+</form>
+</html>

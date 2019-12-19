@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+<head>
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <h1> <u>{{new_title}}</u> </h1>
+  <table>
+    <tr>{%for heading in col_h%}<th>{{heading}}</th>{%endfor%}</tr>
+    {% for row in brew_l %}<tr>{% for value_ar in row %}
+      <td><b>{{value_ar}}</b></td>
+      {% endfor %}</tr>{% endfor %}
+  </table>
+</body>
+<br>
+<form action="/">
+  <input value="Return to home" type="submit" class="button">
+</form>
+</html>

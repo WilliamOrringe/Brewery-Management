@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+<head>
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <h1><u>{{new_title}}</u></h1>
+  <p>
+    Click on a tank to finish the conditioner processor and to automatically
+    put into storage:
+  </p>
+  <table>
+    <tr>{%for heading in col_h%}<th>{{heading}}</th>{%endfor%}</tr>
+    {% for row in batch_list %}<tr>{% for value_ar in row %}
+      {%if loop.index0 == 0 and row[3] == "Active-Conditioning"%}
+        <td><a href="/storage/{{row[0]}}"> <b>{{value_ar}} </b></a> </td>
+      {%else%}
+      <td><b>{{value_ar}} </b></td>
+      {%endif%}
+      {% endfor %}</tr>{% endfor %}
+  </table>
+</body>
+<br>
+<form action="/">
+  <input value="Return to home" type="submit" class="button">
+</form>
+</html>

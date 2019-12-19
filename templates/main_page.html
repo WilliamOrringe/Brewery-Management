@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <h1> <u>Brewery Management</u> </h1>
+  <table>
+    <tr>{%for heading in col_h%}<th>{{heading}}</th>{%endfor%}</tr>
+    {% for row in brew_l %}<tr>{% for value_ar in row %}
+      {% if loop.index0 == 0%}
+      <td><a href="/tank/{{value_ar}}"> <b>{{value_ar}} </b></a> </td>
+      {%else%}
+      <td><b>{{value_ar}}</b></td>
+      {%endif%}
+      {% endfor %}</tr>{% endfor %}
+    </table>
+    <br>
+    <table>
+      <tr>
+        <td colspan="3">
+          <form action="/predictions">
+            <input value="Old-Sales data and predictions calculator"
+            type="submit" class="button">
+          </form>
+        </td>
+        <td>
+          <form action="/fermentation">
+            <input value="Fermenter"
+            type="submit" class="button">
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <form action="/conditioning">
+            <input value="Conditioner"
+            type="submit" class="button">
+          </form>
+        </td>
+        <td>
+          <form action="/storage">
+            <input value="Storage"
+            type="submit" class="button">
+          </form>
+        </td>
+        <td>
+          <form action="/inventory">
+            <input value="Inventory Tracker"
+            type="submit" class="button">
+          </form>
+        </td>
+        <td>
+          <form action="/planner">
+            <input value="Planner"
+            type="submit" class="button">
+          </form>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+  </html>

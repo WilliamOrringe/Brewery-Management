@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Brewery Management</title>
+</head>
+<body>
+  <h1> <u>Brewery Management</u> </h1>
+  <link rel="stylesheet" href="{{ url_for('static', filename='homepagestyle.css') }}" link>
+  <h2> <u> Sales data from last year:</u> </h2>
+  <table>
+    <tr>{%for month in months%}<th>{{month}}</th>{%endfor%}</tr>
+    {% for array in bottleasd %}<tr>{% for value_ar in array %}
+      <td><b>{{value_ar}}</b></td>
+      {% endfor %}</tr>{% endfor %}
+    </table>
+    <h2> <u>Prediction calculator </u></h2>
+    <form method = "POST">
+      <div class="dropdown">
+      <select class ="dropbtn" name=recipe_type>
+        <option value="0" selected disabled>Please select the recipe</option>
+        <option value="1">Red Helles</option>
+        <option value="2">Pilsner</option>
+        <option value="3">Dunkel</option>
+      </select>
+      </div>
+      <div class="dropdown">
+      <select class ="dropbtn" name=time_period required>
+        <option value="0"selected disabled>Please select how many weeks from now
+        </option>
+        {%for i in range(52) %}
+        <option value="{{12+((i+1)*0.25)}}"> {{i+1}} week/s</option>
+        {%endfor%}
+      </select>
+      </div>
+      <input type="submit" class="button">
+    </form>
+    <h3> Predictions for the recipe(s) in {{month_predict}}:</h3>
+    {%for prediction in predictions%}<li>{{prediction}}</li>{%endfor%}
+  </body>
+  <br>
+  <form action="/">
+    <input value="Return to home" type="submit" class="button">
+  </form>
+  </html>
