@@ -1,0 +1,8 @@
+['Albert', '1000', 'Fermenter/conditioner', 'Active-Fermentation', '06-12-2019T12:22:54']
+['Brigadier', '800', 'Fermenter/conditioner', 'No', 'N/A']
+['Dylon', '800', 'Fermenter/conditioner', 'No', 'N/A']
+['Emily', '1000', 'Fermenter/conditioner', 'No', 'N/A']
+['Florence', '800', 'Fermenter/conditioner', 'Active-Fermentation', '06-12-2019T12:23:13']
+['Gertrude', '680', 'Conditioner', 'No', 'N/A']
+['Harry', '680', 'Conditioner', 'No', 'N/A']
+['R2D2', '800', 'Fermenter', 'Active-Fermentation', '06-12-2019T12:23:02']
